@@ -1,0 +1,37 @@
+.container {
+}
+.header {
+  display: flex;
+  position: sticky;
+  background-color: white;
+  top: 0;
+  z-index: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  height: 80px;
+  border-bottom: 1px solid whitesmoke;
+}
+.search {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+}
+.searchInput {
+  outline-width: 0;
+  border: none;
+  flex: 1;
+}
+.userAvatar {
+  cursor: pointer;
+}
+.userAvatar:hover {
+  opacity: 0.8;
+}
+
+.sidebarButton {
+  width: 100%;
+  border-top: 1px solid whitesmoke !important;
+  border-bottom: 1px solid whitesmoke !important;
+}

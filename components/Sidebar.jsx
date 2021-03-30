@@ -1,66 +1,45 @@
-import { Avatar, IconButton } from '@material-ui/core';
+import { Avatar, IconButton, Button } from '@material-ui/core';
 import {} from '@material-ui/icons';
-import styled from 'styled-components';
+import styles from '../styles/Sidebar.module.css';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ChatIcon from '@material-ui/icons/Chat';
 import SearchIcon from '@material-ui/icons/Search';
+import * as EmailValidator from 'email-validator';
 
 const Sidebar = () => {
+  const createChat = () => {
+    const input = prompt('لطفا ایمیل مخاطب را وارد کنید');
+
+    !input && null;
+
+    if (EmailValidator.validate(input)) {
+      // this is where whe add chats to firestore db
+    }
+  };
+
   return (
-    <Container>
-      <Header>
-        <UserAvatar />
-        <IconContainer>
+    <main className={styles.container}>
+      <div className={styles.header}>
+        <Avatar className={styles.userAvatar} />
+        <div className={styles.iconContainer}>
           <IconButton>
             <ChatIcon />
           </IconButton>
           <IconButton>
             <MoreVertIcon />
           </IconButton>
-        </IconContainer>
-      </Header>
-      <Search>
+        </div>
+      </div>
+      <div className={styles.search}>
         <SearchIcon />
-        <SearchInput placeholder="...جستجو" />
-      </Search>
-    </Container>
+        <input className={styles.searchInput} placeholder="...جستجو" />
+      </div>
+      <Button className={styles.sidebarButton} onClick={createChat}>
+        {' '}
+        چت جدید
+      </Button>
+    </main>
   );
 };
 
 export default Sidebar;
-
-const Container = styled.div``;
-
-const Search = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  border-radius: 5px;
-`;
-
-const SearchInput = styled.input`
-  outline-width: 0;
-  border: none;
-  flex: 1;
-`;
-
-const Header = styled.div`
-  display: flex !important;
-  position: sticky;
-  background-color: white;
-  top: 0;
-  z-index: 1;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  height: 80px;
-  border-bottom: 1px solid whitesmoke;
-`;
-const UserAvatar = styled(Avatar)`
-  cursor: pointer;
-  :hover {
-    opacity: 0.8;
-  }
-`;
-
-const IconContainer = styled.div``;
