@@ -1,8 +1,8 @@
 import Image from 'next/image';
-
+import { FoldingCube } from 'better-react-spinkit';
 const Loading = () => {
   return (
-    <center>
+    <center style={{ display: 'grid', placeItems: 'center', height: '100vh' }}>
       <div>
         <Image
           src="/logo.png"
@@ -11,6 +11,7 @@ const Loading = () => {
           width="300"
           style={{ marginBottom: 10 }}
         />
+        <FoldingCube size={100} />
       </div>
     </center>
   );
